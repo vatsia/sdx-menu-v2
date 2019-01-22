@@ -3,11 +3,14 @@ from flask import render_template
 from flask import request
 from flask import make_response
 from flask import redirect, url_for
+import sodexo_api_service as sdx
+import time
 
 app = Flask(__name__)
 
 ## SETTINGS
 RESTAURANT_COOKIE_NAME = 'SDX_MENU_v2_REST'
+DEFAULT_LANG = 'fi'
 
 # index-page; if no session set, redirect to restaurant -page
 @app.route('/')
@@ -25,7 +28,6 @@ def index():
     else:
         # cookie found, redirect to restaurant menu
         return redirect(url_for('restaurant_menu', restaurant_id=rs_id))
-    
 
 # restaurants
 @app.route('/restaurants')
@@ -35,7 +37,8 @@ def restaurants_index():
 # restaurant-page, a.k.a menu for the day
 @app.route('/restaurant/<restaurant_id>')
 def restaurant_menu(restaurant_id):
-    return render_template('restaurant.html')
+    menu_json = sdx.get_daily_menu(time.strftime('%d'), time.strftime('%m'), time.strftime('%Y'), DEFAULT_LANG, restaurant_id)
+    return render_template('restaurant.html', menu=menu_json)
 
 # info-page
 @app.route('/info')

@@ -2,4 +2,8 @@
 {% block title %}Restaurant{% endblock %}
 {% block content %}
     <h1>Menu for the day</h1>
+    <a href="{{ menu['meta']['ref_url'] }}">{{ menu['meta']['ref_title'] }}</a>
+    {% for item in menu['courses'] %}
+        <p>{{item['title_fi']}}</p>
+    {% endfor %}
 {% endblock %}

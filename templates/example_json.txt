@@ -1,0 +1,14 @@
+ {'meta': 
+    {'generated_timestamp': 1548139562, 
+    'requested_timestamp': 1548108000, 
+    'ref_url': 'https://www.sodexo.fi/hamk-riihimaki', 
+    'ref_title': 'HAMK Riihimäki RoBotti'}, 
+    'courses': [{'title_fi': 'Uunimakkaraa ja perunamuusia', 
+    'title_en': 'Oven-baked sausage and mashed potatoes', 
+    'category': 'Kotiruoka 1.', 
+    'price': '2,60 / 4,87 / 8,90', 
+    'properties': 'G',
+     'desc_fi': '', 
+     'desc_en': '', 
+     'desc_se': ''}, 
+     {'title_fi': 'Mantelikalaa ja perunamuusia', 'title_en': 'Almond-crusted fish and mashed potatoes', 'category': 'Kotiruoka 2.', 'price': '2,60 / 4,87 / 8,90', 'desc_fi': '', 'desc_en': '', 'desc_se': ''}, {'title_fi': 'Juures-papupyttipannua ', 'title_en': 'Bean and vegetable stir fry', 'category': 'Vegaani', 'price': '2,60 / 4,87 / 8,90', 'properties': 'G, M', 'desc_fi': '', 'desc_en': '', 'desc_se': ''}, {'title_fi': 'Inkivääri-porkkanasosekeitto', 'title_en': 'Pureed ginger and carrot soup', 'category': 'Kasviskeitto', 'price': '2,60 / 4,87 / 8,90', 'properties': 'G, L', 'desc_fi': '', 'desc_en': '', 'desc_se': ''}, {'title_fi': 'Bacon Burger, maalaisperunat', 'title_en': 'Bacon Burger, Country style Potatoes', 'category': 'Erikoislounas', 'price': '4,95 / 7,39 / 10,80', 'properties': 'VL', 'desc_fi': '', 'desc_en': '', 'desc_se': ''}, {'title_fi': 'Salaatin kera päivittäin vaihtuva proteiinilisä vitriinistä 3 vaihtoehtoa', 'title_en': 'Salad with protein, 3 options', 'category': 'Salaatti', 'price': '2,60 / 4,87 / 8,90', 'desc_fi': '', 'desc_en': '', 'desc_se': ''}, {'title_fi': 'Marjakiisseliä', 'title_en': 'Blackberry Fool', 'category': 'Jälkiruoka', 'price': '1,50', 'properties': 'G, M', 'desc_fi': '', 'desc_en': '', 'desc_se': ''}]} 
