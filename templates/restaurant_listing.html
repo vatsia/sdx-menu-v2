@@ -2,7 +2,7 @@
 {% block title %}Restaurants{% endblock %}
 {% block content %}
     <h1>Restaurant listing</h1>
-    {% for name in restaurants %}
-        <a href="{{ url_for('restaurant_menu', restaurant_id=restaurants[name])}}">{{name}}</a>
+    {% for id in restaurants %}
+        <a href="{{ url_for('restaurant_menu', restaurant_id=id)}}">{{restaurants[id]}}</a>
     {% endfor %}
 {% endblock %}

@@ -11,10 +11,13 @@ app = Flask(__name__)
 ## SETTINGS
 RESTAURANT_COOKIE_NAME = 'SDX_MENU_v2_REST'
 DEFAULT_LANG = 'fi'
+# restaurant id : name
 AVAILABLE_RESTAURANTS = {
-    'HAMK Riihimäki' : '31332',
-    'HAMK Hämeenlinna' : '31314'
+    '31332' : 'HAMK Riihimäki',
+    '31314' : 'HAMK Hämeenlinna'
 }
+
+## END OF SETTINGS
 
 # index-page; if no session set, redirect to restaurant -page
 @app.route('/')
@@ -26,7 +29,7 @@ def index():
     except KeyError:
         rs_id = -1
 
-    if rs_id == None or rs_id < 0:
+    if rs_id == None or int(rs_id) < 0:
         # cookie not found, show restaurant listing
         return redirect(url_for('restaurants_index'))
     else:
@@ -42,7 +45,14 @@ def restaurants_index():
 @app.route('/restaurant/<restaurant_id>')
 def restaurant_menu(restaurant_id):
     menu_json = sdx.get_daily_menu(time.strftime('%d'), time.strftime('%m'), time.strftime('%Y'), DEFAULT_LANG, restaurant_id)
-    return render_template('restaurant.html', menu=menu_json)
+    return render_template('restaurant.html', menu=menu_json, restid=restaurant_id)
+
+# set default restaurant cookie
+@app.route('/restaurant/<restaurant_id>/setdefault')
+def set_default_restaurant(restaurant_id):
+    resp = make_response(redirect(url_for('index')))
+    resp.set_cookie(RESTAURANT_COOKIE_NAME, restaurant_id)
+    return resp
 
 # info-page
 @app.route('/info')
