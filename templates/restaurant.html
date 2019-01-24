@@ -4,6 +4,7 @@
     <h1>Menu for the day</h1>
     <a href="{{ menu['meta']['ref_url'] }}">{{ menu['meta']['ref_title'] }}</a>
     {% for item in menu['courses'] %}
-        <p>{{item['title_fi']}}</p>
+        <p>{{ item['title_fi'] }}</p>
     {% endfor %}
+    <a href="{{ url_for('set_default_restaurant', restaurant_id=restid) }}">Make default restaurant</a>
 {% endblock %}

@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Restaurants{% endblock %}
 {% block content %}
+
     <div class="d-flex align-items-center">
     <h1>Restaurant listing</h1></div>
+
+    <h1>Restaurant listing</h1>
+    {% for id in restaurants %}
+        <a href="{{ url_for('restaurant_menu', restaurant_id=id)}}">{{restaurants[id]}}</a>
+    {% endfor %}
 {% endblock %}
