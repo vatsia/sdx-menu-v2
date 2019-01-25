@@ -44,8 +44,9 @@ def restaurants_index():
 # restaurant-page, a.k.a menu for the day
 @app.route('/restaurant/<restaurant_id>')
 def restaurant_menu(restaurant_id):
+    cookie = int(request.cookies.get(RESTAURANT_COOKIE_NAME))
     menu_json = sdx.get_daily_menu(time.strftime('%d'), time.strftime('%m'), time.strftime('%Y'), DEFAULT_LANG, restaurant_id)
-    return render_template('restaurant.html', menu=menu_json, restid=restaurant_id)
+    return render_template('restaurant.html', menu=menu_json, restid=restaurant_id, ck=cookie)
 
 # set default restaurant cookie
 @app.route('/restaurant/<restaurant_id>/setdefault')

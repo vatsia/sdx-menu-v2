@@ -6,12 +6,17 @@ API_BASE_URI = 'https://www.sodexo.fi/ruokalistat/output/daily_json/'
 LANG = 'fi'
 DEFAULT_LOCATION_ID = '31332'
 
+# time variables for performance testing
+interaction_start = 0
+interaction_end = 0
+
 def get_daily_menu(dd, mm, yyyy, lang, location):
     data = fetch_data_from_api(dd, mm, yyyy, lang, location)
     parsed = json.loads(data)
     return parsed
 
 def fetch_data_from_api(dd, mm, yyyy, lang, location):
+    interaction_start = time.gmtime()
     req = urllib.request.Request(construct_uri(lang, location, dd, mm, yyyy))
     resp = ''
     try:
@@ -19,10 +24,15 @@ def fetch_data_from_api(dd, mm, yyyy, lang, location):
     except urllib.error.HTTPError as http_e:
         print("HTTPError: " + http_e)
 
+    interaction_end = time.gmtime()
     return resp.read()
 
 def construct_uri(lang, location_id, day, month, year):
     return API_BASE_URI + location_id + '/' + year + '/' + month + '/' + day + '/' + lang
+
+## FUNCTION FOR CHECKING PERFORMANCE
+def get_interaction_time():
+    return interaction_end - interaction_start
 
 ########## TESTS
 def test_is_construct_uri_working():
@@ -46,6 +56,7 @@ def test():
     print("test_fetch_data_from_api_returns_something: ")
     if test_fetch_data_from_api_returns_something():
         print("OK")
+        print("Interaction_time: " + str(get_interaction_time()))
     else:
         print("FAIL")
 
