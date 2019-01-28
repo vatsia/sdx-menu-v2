@@ -19,6 +19,15 @@ AVAILABLE_RESTAURANTS = {
 
 ## END OF SETTINGS
 
+## LINKS IN NAVIGATION BAR
+with app.app_context():
+    NAVIGATION_LINKS = {
+        # 'controller name'    : 'Link text' 
+        'restaurants_index'  : 'Restaurants',
+        'info'               : 'Info',
+        'destroy_cookie'     : 'Reset default restaurant'
+    }
+
 # index-page; if no session set, redirect to restaurant -page
 @app.route('/')
 def index():
@@ -39,14 +48,18 @@ def index():
 # restaurants
 @app.route('/restaurants')
 def restaurants_index():
-    return render_template('restaurant_listing.html', restaurants=AVAILABLE_RESTAURANTS)
+    return render_template('restaurant_listing.html', restaurants=AVAILABLE_RESTAURANTS, navigation_links=NAVIGATION_LINKS)
 
 # restaurant-page, a.k.a menu for the day
 @app.route('/restaurant/<restaurant_id>')
 def restaurant_menu(restaurant_id):
-    cookie = int(request.cookies.get(RESTAURANT_COOKIE_NAME))
+    cookie = -1
+    raw_cookie = request.cookies.get(RESTAURANT_COOKIE_NAME)
+    if raw_cookie != None:
+        cookie = int(raw_cookie)
+    
     menu_json = sdx.get_daily_menu(time.strftime('%d'), time.strftime('%m'), time.strftime('%Y'), DEFAULT_LANG, restaurant_id)
-    return render_template('restaurant.html', menu=menu_json, restid=restaurant_id, ck=cookie)
+    return render_template('restaurant.html', menu=menu_json, restid=restaurant_id, ck=cookie, navigation_links=NAVIGATION_LINKS)
 
 # set default restaurant cookie
 @app.route('/restaurant/<restaurant_id>/setdefault')
@@ -58,7 +71,7 @@ def set_default_restaurant(restaurant_id):
 # info-page
 @app.route('/info')
 def info():
-    return render_template('info.html')
+    return render_template('info.html', navigation_links=NAVIGATION_LINKS)
 
 # make cookie null
 @app.route('/destroy_cookie')

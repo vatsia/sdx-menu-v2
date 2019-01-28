@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% block title %}{{ menu['meta']['ref_title'] }}{% endblock %}
 {% block content %}
-    <h1>Menu for the day</h1>
-    <a href="{{ menu['meta']['ref_url'] }}">{{ menu['meta']['ref_title'] }}</a>
+    <h1><a href="{{ menu['meta']['ref_url'] }}">{{ menu['meta']['ref_title'] }}</a></h1>
+    
     {% for item in menu['courses'] %}
-        <p>{{ item['title_fi'] }}</p>
+        <h3>{{ item['category'] }}</h3>
+        <p>{{ item['title_fi'] }} Hinta: {{ item['price'] }} Erikoisruokavaliot: {{ item['properties'] }}</p>
     {% endfor %}
+
     {% if ck < 1 %}
         <a href="{{ url_for('set_default_restaurant', restaurant_id=restid) }}">Make default restaurant</a>
     {% endif %}

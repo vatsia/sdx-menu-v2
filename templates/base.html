@@ -18,7 +18,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-info">
-    <a class="navbar-brand " href="/"><h2>Sodexo</h2></a>
+    <a class="navbar-brand " href="/"><h2>Sdx-menu v2</h2></a>
     <button class="navbar-toggler btn btn-primary" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,16 +28,16 @@
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto ">
             <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ url_for('restaurants_index') }}">{{ navigation_links['restaurants_index'] }}</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
-                    Kato! Tämä on menu !
+                    More
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/restaurants">Paskaa</a>
-                    <a class="dropdown-item" href="/info">Lisää paskaa</a>
+                    <a class="dropdown-item" href="{{ url_for('info') }}">{{ navigation_links['info'] }}</a>
+                    <a class="dropdown-item" href="{{ url_for('destroy_cookie') }}">{{ navigation_links['destroy_cookie'] }}</a>
                 </div>
             </li>
         </ul>
@@ -55,59 +55,12 @@
     <div class="container-fluid text-center text-md-left justify-content-center align-items-center"
          style="margin-left: 00%;">
 
-        <!-- Grid row -->
-        <!-- <div class="row"> -->
-        <!-- Grid column -->
-        <!-- <div class="col-md-6 mt-md-0 mt-3"> -->
-
-        <!-- Content -->
-        <div class="footer-copyright text-center py-3">© 2018 Ovatsia:
-            <h5 class="text-uppercase">Vatsian ruokalistat Oy</h5>
-            <p>Ruokalistaratkaisut pieneen tai suureen tarpeeseen</p>
-        </div>
-
-
-        <!-- </div> -->
-        <!-- Grid column -->
-
-        <!-- <hr class="clearfix w-100 d-md-none pb-3"-->
-
-        <!--        <div class="col-md-3 mb-md-0 mb-3">
-
-                    <h5 class="text-uppercase">Links</h5>
-
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#!">Olen Linkki tarvittaessa</a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-                <div class="col-md-3 mb-md-0 mb-3">
-
-                    <h5 class="text-uppercase">Links</h5>
-
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#!">Niinkuin minäkin</a>
-                        </li>
-                    </ul>
-
-                </div>
-
-            </div> -->
-        <!-- Grid row
-
-    </div>-->
-        <!-- Footer Links -->
-
         <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2018 Ovatsia:
-            <a href="https://www.youtube.com/watch?v=6jJkdRaa04g"> Vatsian kotokolo</a>
+        <div class="footer-copyright text-center py-3">
+            <p>Menus by <a href="https://www.sodexo.fi/" target="_blank">Sodexo</a></p>
+            <p>Application by <a href="https://www.github.com/vatsia/">github/vatsia</a> and <a href="https://www.github.com/rauli1701/">github/rauli1701</a></p>
         </div>
-        <!-- Copyright -->
+    </div>
 
 </footer>
 {% block footer %}
