@@ -89,3 +89,12 @@ def destroy_cookie():
     resp = make_response(redirect(url_for('index')))
     resp.set_cookie(RESTAURANT_COOKIE_NAME, '-1')
     return resp
+
+## ERROR HANDLERS
+@app.errorhandler(404)
+def errorhandler_not_found(err):
+    return render_template('err_not_found.html', navigation_links=NAVIGATION_LINKS)
+
+@app.errorhandler(500)
+def errorhandler_internal_server_error(err):
+    return render_template('err_internal_server_error.html', navigation_links=NAVIGATION_LINKS)
