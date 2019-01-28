@@ -3,16 +3,19 @@ from flask import render_template
 from flask import request
 from flask import make_response
 from flask import redirect, url_for
+from werkzeug.contrib.cache import SimpleCache
 import sodexo_api_service as sdx
 import time
 
 app = Flask(__name__)
+cache = SimpleCache()
 
 ## SETTINGS
 RESTAURANT_COOKIE_NAME = 'SDX_MENU_v2_REST'
 DEFAULT_LANG = 'fi'
-# restaurant id : name
+
 AVAILABLE_RESTAURANTS = {
+    # 'id'  : 'name'
     '31332' : 'HAMK Riihimäki',
     '31314' : 'HAMK Hämeenlinna'
 }
@@ -20,13 +23,20 @@ AVAILABLE_RESTAURANTS = {
 ## END OF SETTINGS
 
 ## LINKS IN NAVIGATION BAR
-with app.app_context():
-    NAVIGATION_LINKS = {
-        # 'controller name'    : 'Link text' 
-        'restaurants_index'  : 'Restaurants',
-        'info'               : 'Info',
-        'destroy_cookie'     : 'Reset default restaurant'
-    }
+NAVIGATION_LINKS = {
+    # 'controller name'    : 'Link text' 
+    'restaurants_index'  : 'Restaurants',
+    'info'               : 'Info',
+    'destroy_cookie'     : 'Reset default restaurant'
+}
+
+# enable caching for api requests
+def get_menu_from_cache(restaurant_id, day, month, year):
+    cached_menu = cache.get(str(day) + str(month) + str(year) + "-" + str(restaurant_id) + "-menu")
+    if cached_menu is None:
+        cached_menu = sdx.get_daily_menu(day, month, year, DEFAULT_LANG, restaurant_id)
+        cache.set(str(day) + str(month) + str(year) + "-" + str(restaurant_id) + "-menu", cached_menu, timeout=5 * 60)
+    return cached_menu
 
 # index-page; if no session set, redirect to restaurant -page
 @app.route('/')
@@ -58,7 +68,7 @@ def restaurant_menu(restaurant_id):
     if raw_cookie != None:
         cookie = int(raw_cookie)
     
-    menu_json = sdx.get_daily_menu(time.strftime('%d'), time.strftime('%m'), time.strftime('%Y'), DEFAULT_LANG, restaurant_id)
+    menu_json = get_menu_from_cache(restaurant_id, time.strftime('%d'), time.strftime('%m'), time.strftime('%Y'))
     return render_template('restaurant.html', menu=menu_json, restid=restaurant_id, ck=cookie, navigation_links=NAVIGATION_LINKS)
 
 # set default restaurant cookie
