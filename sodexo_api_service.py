@@ -11,7 +11,7 @@ interaction_start = 0
 interaction_end = 0
 
 def get_daily_menu(dd, mm, yyyy, lang, location):
-    data = fetch_data_from_api(dd, mm, yyyy, lang, location)
+    data = str(fetch_data_from_api(dd, mm, yyyy, lang, location))
     parsed = json.loads(data)
     return parsed
 
@@ -25,7 +25,7 @@ def fetch_data_from_api(dd, mm, yyyy, lang, location):
         print("HTTPError: " + http_e)
 
     interaction_end = time.gmtime()
-    return resp.read()
+    return resp.read().decode('utf-8')
 
 def construct_uri(lang, location_id, day, month, year):
     return API_BASE_URI + location_id + '/' + year + '/' + month + '/' + day + '/' + lang
