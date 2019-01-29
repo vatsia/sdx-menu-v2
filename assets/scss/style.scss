@@ -22,12 +22,25 @@ This is SCSS file to make the website look more pleasant. So far it has been sep
 This is the section for the base. It includes css code for the base template that includes the footer, header and all the basics.
  */
 
-header {
+nav {
+  top: 0px;
+  font-family: $Oxygen !important;
+  background-color: $Tangerine !important;
+  color: $Tan !important;
+  a {
+    color: $Tan !important;
+  }
+  div {
+
+
+  }
+
 
 }
 
 footer {
-
+  background-color: $Tangerine !important;
+  font-family: $Oxygen !important;
 }
 
 

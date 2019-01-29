@@ -1,9 +1,21 @@
-.restaurant-listing table thead tr th {
-  padding-left: 1rem !important;
-  padding-right: 1rem !important; }
-.restaurant-listing table tbody tr th {
-  padding-left: 1rem !important;
-  padding-right: 1rem !important; }
-  .restaurant-listing table tbody tr td {
+nav {
+  top: 0px;
+  font-family: Oxygen, sans-serif !important;
+  background-color: #E37222 !important;
+  color: #EEAA7B !important; }
+  nav a {
+    color: #EEAA7B !important; }
+
+footer {
+  background-color: #E37222 !important;
+  font-family: Oxygen, sans-serif !important; }
+
+  .restaurant-listing table thead tr th {
     padding-left: 1rem !important;
     padding-right: 1rem !important; }
+  .restaurant-listing table tbody tr th {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important; }
+    .restaurant-listing table tbody tr td {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important; }
