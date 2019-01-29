@@ -28,7 +28,7 @@
 
   <tbody>
     <tr>
-      <th scope="row">{{restaurants[id][0]}}</th>
+      <th scope="row"><a href="{{ url_for('restaurant_menu', restaurant_id=id)}}">{{restaurants[id][0]}}</a></th>
       <td>{{restaurants[id][1]}}</td>
       <td>{{restaurants[id][3]}}<br>{{restaurants[id][4]}}</td>
 
