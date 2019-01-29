@@ -1,0 +1,94 @@
+$Tangerine: #E37222;
+$Teal: #07889B;
+$Laktoosi: #66B9BF;
+$Tan: #EEAA7B;
+
+$Oxygen: Oxygen, sans-serif;
+
+/*
+This is SCSS file to make the website look more pleasant. So far it has been separated into following sections:
+
+1. Base
+2. Restaurant listing
+3. Restaurant
+4. Info
+
+
+
+ */
+
+/*
+-----  1. Base  -----
+This is the section for the base. It includes css code for the base template that includes the footer, header and all the basics.
+ */
+
+header {
+
+}
+
+footer {
+
+}
+
+
+/*
+
+
+
+-----  2. Restaurant listing  -----
+
+This is the CSS code for the restaurant listing page.
+
+ */
+
+.restaurant-listing {
+  table {
+    thead {
+      tr {
+
+        th {
+                  padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        }
+
+      }
+
+    }
+
+    tbody {
+      tr {
+
+        th {
+                  padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        }
+
+        td {
+                  padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        }
+      }
+    }
+  }
+
+
+}
+
+
+/*
+
+-----  3. Restaurant  -----
+
+This is the CSS code for the restaurant page.
+
+ */
+
+
+
+/*
+
+-----  4. Info  -----
+
+This is the CSS code for the info.
+
+ */

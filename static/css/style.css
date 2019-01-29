@@ -1,0 +1,9 @@
+.restaurant-listing table thead tr th {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important; }
+.restaurant-listing table tbody tr th {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important; }
+  .restaurant-listing table tbody tr td {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important; }
