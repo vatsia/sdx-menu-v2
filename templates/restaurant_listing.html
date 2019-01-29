@@ -2,11 +2,49 @@
 {% block title %}Restaurants{% endblock %}
 {% block content %}
 
-    <div class="d-flex align-items-center">
-    <h1>Restaurant listing</h1></div>
+  <!--  <div class="d-flex align-items-center" style="align-content: center !important;">
+        <h1>Restaurant listing</h1></div> -->
+<table class="table-responsive table-striped" style="padding:1.5rem !important;">
+  <thead>
+    <tr>
+      <th scope="col">Ravintola</th>
+      <th scope="col">Puhelinnumero</th>
+      <th scope="col">Osoite</th>
+      <th scope="col">Email</th>
+      <th scope="col">Aukioloajat</th>
+        <th scope="col">Aamupala</th>
+        <th scope="col">Kahvila</th>
+        <th scope="col">Lounas</th>
+        <th scope="col">Huom:</th>
+    </tr>
+  </thead>
     {% for id in restaurants %}
-    <p>
-        <a href="{{ url_for('restaurant_menu', restaurant_id=id)}}">{{restaurants[id]}}</a>
+        <!-- <p>
+        <a href="{{ url_for('restaurant_menu', restaurant_id=id)}}">{{restaurants[id][0]}}</a>
     </p>
+         -->
+
+
+  <tbody>
+    <tr>
+      <th scope="row">{{restaurants[id][0]}}</th>
+      <td>{{restaurants[id][1]}}</td>
+      <td>{{restaurants[id][3]}}<br>{{restaurants[id][4]}}</td>
+
+        <td>{{restaurants[id][2]}}</td>
+        <td>{{restaurants[id][5][0]}}<br>{{restaurants[id][5][1]}}</td>
+        <td>{{restaurants[id][6][0][1]}}<br>{{restaurants[id][6][0][2]}}</td>
+        <td>{{restaurants[id][6][1][1]}}<br>{{restaurants[id][6][1][2]}}</td>
+        <td>{{restaurants[id][6][2][1]}}<br>{{restaurants[id][6][2][2]}}</td>
+        <td>{{restaurants[id][7]}}</td>
+
+    </tr>
+
+
+
+
     {% endfor %}
+      </tbody>
+</table>
+
 {% endblock %}

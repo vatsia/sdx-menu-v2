@@ -3,22 +3,23 @@ from flask import render_template
 from flask import request
 from flask import make_response
 from flask import redirect, url_for
+from flask_scss import Scss
 from werkzeug.contrib.cache import SimpleCache
 import sodexo_api_service as sdx
 import time
 
 app = Flask(__name__)
 cache = SimpleCache()
-
+Scss(app, static_dir='static', asset_dir='assets')
 ## SETTINGS
 RESTAURANT_COOKIE_NAME = 'SDX_MENU_v2_REST'
 DEFAULT_LANG = 'fi'
 
 AVAILABLE_RESTAURANTS = {
     # 'id'  : 'name'
-    '31332' : 'HAMK Riihimäki',
-    '31314' : 'HAMK Hämeenlinna'
-}
+    '31332' : ['HAMK Riihimäki RoBotti', "050 439 4525", "HAMK.riihimaki.FMS.FI@sodexo.com","Kaartokatu 2", "11100 Riihimäki", ["Ma-Pe 07.45 - 16.00", "La-Su suljettu"],[["Aamupala", "Ma-Pe 08.00 - 09.30 ","La-Su suljettu "],["Kahvila","Ma-Pe 07.45 - 16.00","La-Su suljettu"],["Lounasajat","Ma-Pe 10.30 - 13.30","La-Su suljettu"]],"Huom! Monimuoto-opiskelu viikonloppuisin( koskee perjantai-illan ja lauantain aukioloaikoja) olemme avoinna perjantaisin klo 19.00 asti ja lauantaina ravintola on avoinna klo 8:00 - 13:30(lounas klo 11.00-12.30)." ],
+    '31314' : ['HAMK Hämeenlinna', "050 400 1747", "HAMK.korkeakoulukeskus.FMS.FI@sodexo.com", "Visamäentie 35", "13500 Hämeenlinna", ["Ma-Pe 07.45 - 16.00", "La-Su suljettu"],[["Aamupala","Ma-Pe 07.45 - 10.00","La-Su suljettu"],["Kahvila","Ma-Pe 07.45 - 18.00","La-Su suljettu"],["Lounasajat","Ma-Pe 10.30 - 14.00","La-Su suljettu"]], "Huom! Monimuoto-opiskelu viikonloppuisin (listattuna alle) olemme auki perjantai-iltana klo 19 asti ja lauantaina kahvila on auki klo 8:00 - 15:00, lounasta 11.00-12.30. Kahvilan palvelut on sijoitettu viikonloppuna ravintolan linjastoon. Olemme auki: 26.1., 9.2., 3.2., 9.3., 23.3., 6.4., 13.4"],
+}               # 0                   1                 2                                           3                   4                   5 0                 5 1                     6 0 0       601                 602                 610         611                 612             620         621                     622                               7
 
 ## END OF SETTINGS
 
