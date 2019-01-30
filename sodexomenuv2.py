@@ -17,9 +17,9 @@ DEFAULT_LANG = 'fi'
 
 AVAILABLE_RESTAURANTS = {
     # 'id'  : 'name'
-    '31332' : ['HAMK Riihimäki RoBotti', "050 439 4525", "HAMK.riihimaki.FMS.FI@sodexo.com","Kaartokatu 2", "11100 Riihimäki", ["Ma-Pe 07.45 - 16.00", "La-Su suljettu"],[["Aamupala", "Ma-Pe 08.00 - 09.30 ","La-Su suljettu "],["Kahvila","Ma-Pe 07.45 - 16.00","La-Su suljettu"],["Lounasajat","Ma-Pe 10.30 - 13.30","La-Su suljettu"]],"Huom! Monimuoto-opiskelu viikonloppuisin( koskee perjantai-illan ja lauantain aukioloaikoja) olemme avoinna perjantaisin klo 19.00 asti ja lauantaina ravintola on avoinna klo 8:00 - 13:30(lounas klo 11.00-12.30)." ],
-    '31314' : ['HAMK Hämeenlinna', "050 400 1747", "HAMK.korkeakoulukeskus.FMS.FI@sodexo.com", "Visamäentie 35", "13500 Hämeenlinna", ["Ma-Pe 07.45 - 16.00", "La-Su suljettu"],[["Aamupala","Ma-Pe 07.45 - 10.00","La-Su suljettu"],["Kahvila","Ma-Pe 07.45 - 18.00","La-Su suljettu"],["Lounasajat","Ma-Pe 10.30 - 14.00","La-Su suljettu"]], "Huom! Monimuoto-opiskelu viikonloppuisin (listattuna alle) olemme auki perjantai-iltana klo 19 asti ja lauantaina kahvila on auki klo 8:00 - 15:00, lounasta 11.00-12.30. Kahvilan palvelut on sijoitettu viikonloppuna ravintolan linjastoon. Olemme auki: 26.1., 9.2., 3.2., 9.3., 23.3., 6.4., 13.4"],
-}               # 0                   1                 2                                           3                   4                   5 0                 5 1                     6 0 0       601                 602                 610         611                 612             620         621                     622                               7
+    '31332' : ['HAMK Riihimäki RoBotti', "050 439 4525", "HAMK.riihimaki.FMS.FI@sodexo.com","Kaartokatu 2", "11100 Riihimäki", ["Ma-Pe", "07.45 - 16.00", "La-Su", "suljettu"],[["Aamupala", "Ma-Pe", "08.00 - 09.30 ","La-Su", "suljettu "],["Kahvila","Ma-Pe", "07.45 - 16.00","La-Su", "suljettu"],["Lounasajat","Ma-Pe", "10.30 - 13.30","La-Su", "suljettu"]],"Huom! Monimuoto-opiskelu viikonloppuisin( koskee perjantai-illan ja lauantain aukioloaikoja) olemme avoinna perjantaisin klo 19.00 asti ja lauantaina ravintola on avoinna klo 8:00 - 13:30(lounas klo 11.00-12.30)." ],
+    '31314' : ['HAMK Hämeenlinna', "050 400 1747", "HAMK.korkeakoulukeskus.FMS.FI@sodexo.com", "Visamäentie 35", "13500 Hämeenlinna", ["Ma-Pe", "07.45 - 16.00", "La-Su", "suljettu"],[["Aamupala","Ma-Pe", "07.45 - 10.00","La-Su", "suljettu"],["Kahvila","Ma-Pe", "07.45 - 18.00","La-Su", "suljettu"],["Lounasajat","Ma-Pe", "10.30 - 14.00","La-Su", "suljettu"]], "Huom! Monimuoto-opiskelu viikonloppuisin (listattuna alle) olemme auki perjantai-iltana klo 19 asti ja lauantaina kahvila on auki klo 8:00 - 15:00, lounasta 11.00-12.30. Kahvilan palvelut on sijoitettu viikonloppuna ravintolan linjastoon. Olemme auki: 26.1., 9.2., 3.2., 9.3., 23.3., 6.4., 13.4"],
+}               # 0                   1                 2                                           3                   4                   5 0     5 1             5 2       5 3               6 0 0       601                 602                 610         611                 612             620         621                     622                               7
 
 ## END OF SETTINGS
 
@@ -70,7 +70,7 @@ def restaurant_menu(restaurant_id):
         cookie = int(raw_cookie)
     
     menu_json = get_menu_from_cache(restaurant_id, time.strftime('%d'), time.strftime('%m'), time.strftime('%Y'))
-    return render_template('restaurant.html', menu=menu_json, restid=restaurant_id, ck=cookie, navigation_links=NAVIGATION_LINKS)
+    return render_template('restaurant.html', menu=menu_json, restid=restaurant_id, ck=cookie, navigation_links=NAVIGATION_LINKS, restaurants=AVAILABLE_RESTAURANTS)
 
 # set default restaurant cookie
 @app.route('/restaurant/<restaurant_id>/setdefault')

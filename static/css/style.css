@@ -2,20 +2,39 @@ nav {
   top: 0px;
   font-family: Oxygen, sans-serif !important;
   background-color: #E37222 !important;
-  color: #EEAA7B !important; }
+  color: #07889B !important; }
   nav a {
     color: #EEAA7B !important; }
+    nav a:hover {
+      background-color: #EEAA7B !important;
+      color: #E37222 !important; }
 
 footer {
+  position: absolute !important;
+  width: 100% !important;
+  bottom: 0px !important;
   background-color: #E37222 !important;
   font-family: Oxygen, sans-serif !important; }
 
-  .restaurant-listing table thead tr th {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important; }
-  .restaurant-listing table tbody tr th {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important; }
-    .restaurant-listing table tbody tr td {
-      padding-left: 1rem !important;
-      padding-right: 1rem !important; }
+  .restaurant-listing {
+    height: 100% !important; }
+    .restaurant-listing table thead tr th {
+      padding-top: 0.5rem !important;
+      padding-left: 0.5rem !important;
+      padding-right: 0.5rem !important;
+      align-content: center !important; }
+    .restaurant-listing table tbody tr th {
+      padding-top: 0.5rem !important;
+      padding-left: 0.5rem !important;
+      padding-right: 0.5rem !important;
+      padding-bottom: 0.5rem !important; }
+      .restaurant-listing table tbody tr td {
+        padding-top: 0.5rem !important;
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+        padding-bottom: 0.5rem !important; }
+
+@media screen and (max-width: 992px) {
+  body footer {
+    position: relative !important;   }
+}

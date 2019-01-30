@@ -14,13 +14,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+   <script src="{{ url_for('static', filename='keb.js') }}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block head %}
         <title>{% block title %}{% endblock %} - Sdxmenu V2</title>
     {% endblock %}
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light">
+
+<nav class="navbar navbar-expand-lg navbar-light justify-content-end">
     <a class="navbar-brand " href="/"><h2>Sdx-menu v2</h2></a>
     <button class="navbar-toggler btn btn-primary" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -28,12 +30,20 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto ">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto justify-content-end">
             <li class="nav-item active">
                 <a class="nav-link" href="{{ url_for('restaurants_index') }}">{{ navigation_links['restaurants_index'] }}</a>
+
+
             </li>
-            <li class="nav-item dropdown">
+            <li class="navbar-item-active>">
+                <a class="nav-link" href="{{ url_for('info') }}">{{ navigation_links['info'] }}</a>
+            </li>
+            <li class="navbar-item-active>">
+                <a class="nav-link" href="{{ url_for('destroy_cookie') }}">{{ navigation_links['destroy_cookie'] }}</a>
+            </li>
+            <!--<li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     More
@@ -42,7 +52,7 @@
                     <a class="dropdown-item" href="{{ url_for('info') }}">{{ navigation_links['info'] }}</a>
                     <a class="dropdown-item" href="{{ url_for('destroy_cookie') }}">{{ navigation_links['destroy_cookie'] }}</a>
                 </div>
-            </li>
+            </li> -->
         </ul>
     </div>
 </nav>
@@ -51,8 +61,7 @@
     {% block content %}{% endblock %}</div>
 
 <!-- Footer -->
-<footer class="page-footer font-small blue pt-4 justify-content-center align-items-center"
-        style="position:absolute;bottom:0px;width: 100%;">
+<footer class="page-footer font-small blue pt-4 justify-content-center align-items-center col-xs-3">
 
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left justify-content-center align-items-center"
