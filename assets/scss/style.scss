@@ -27,6 +27,9 @@ nav {
   font-family: $Oxygen !important;
   background-color: $Tangerine !important;
   color: $Teal !important;
+      -webkit-box-shadow: 7px 8px 17px 4px rgba(0,0,0,0.22) !important;
+-moz-box-shadow: 7px 8px 17px 4px rgba(0,0,0,0.22) !important;
+box-shadow: 7px 8px 17px 4px rgba(0,0,0,0.22) !important;
 
   a {
     color: $Tan !important;
@@ -34,6 +37,9 @@ nav {
       background-color: $Tan !important;
       color: $Tangerine !important;
     }
+  }
+  h2 {
+        text-shadow: 5px 4px 15px rgba(28,110,164,0.66) !important;
   }
 
   div {
@@ -66,6 +72,27 @@ This is the CSS code for the restaurant listing page.
 .restaurant-listing {
   height: 100% !important;
   //padding-bottom: 17% !important;
+
+  .card-columns {
+
+  padding: 2rem !important;
+  .card {
+    //padding: 1 rem !important;
+    //align-content: center !important;
+    &:hover {
+      transform: scale(1.1);
+      z-index: 99 !important;
+    }
+
+    -webkit-box-shadow: 7px 8px 17px 4px rgba(0,0,0,0.22) !important;
+-moz-box-shadow: 7px 8px 17px 4px rgba(0,0,0,0.22) !important;
+box-shadow: 7px 8px 17px 4px rgba(0,0,0,0.22) !important;
+
+  img {
+
+  }
+  }
+}
   table {
     thead {
       tr {
@@ -142,5 +169,14 @@ This is the CSS code for the mobiles.
     footer {
       position: relative !important;
     }
+
+    .restaurant-listing {
+
+      .card-columns {
+        align-content: center !important;
+      }
+    }
+
+
   }
 }

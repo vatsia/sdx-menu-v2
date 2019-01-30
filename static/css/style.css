@@ -2,12 +2,17 @@ nav {
   top: 0px;
   font-family: Oxygen, sans-serif !important;
   background-color: #E37222 !important;
-  color: #07889B !important; }
+  color: #07889B !important;
+  -webkit-box-shadow: 7px 8px 17px 4px rgba(0, 0, 0, 0.22) !important;
+  -moz-box-shadow: 7px 8px 17px 4px rgba(0, 0, 0, 0.22) !important;
+  box-shadow: 7px 8px 17px 4px rgba(0, 0, 0, 0.22) !important; }
   nav a {
     color: #EEAA7B !important; }
     nav a:hover {
       background-color: #EEAA7B !important;
       color: #E37222 !important; }
+  nav h2 {
+    text-shadow: 5px 4px 15px rgba(28, 110, 164, 0.66) !important; }
 
 footer {
   position: absolute !important;
@@ -18,6 +23,15 @@ footer {
 
   .restaurant-listing {
     height: 100% !important; }
+    .restaurant-listing .card-columns {
+      padding: 2rem !important; }
+      .restaurant-listing .card-columns .card {
+        -webkit-box-shadow: 7px 8px 17px 4px rgba(0, 0, 0, 0.22) !important;
+        -moz-box-shadow: 7px 8px 17px 4px rgba(0, 0, 0, 0.22) !important;
+        box-shadow: 7px 8px 17px 4px rgba(0, 0, 0, 0.22) !important; }
+        .restaurant-listing .card-columns .card:hover {
+          transform: scale(1.1);
+          z-index: 99 !important; }
     .restaurant-listing table thead tr th {
       padding-top: 0.5rem !important;
       padding-left: 0.5rem !important;
@@ -37,4 +51,6 @@ footer {
 @media screen and (max-width: 992px) {
   body footer {
     position: relative !important;   }
+    body .restaurant-listing .card-columns {
+      align-content: center !important;   }
 }
