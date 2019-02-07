@@ -1,56 +1,131 @@
+.content {
+  min-height: 100vh !important; }
+
+  @keyframes pop {
+    0% {
+      transform: scale(1);   }
+      100% {
+        transform: scale(1.1) !important;
+        z-scale: 99px !important;   }
+}
+
 nav {
   top: 0px;
   font-family: Oxygen, sans-serif !important;
-  background-color: #E37222 !important;
+  background-color: #FFF !important;
   color: #07889B !important;
-  -webkit-box-shadow: 7px 8px 17px 4px rgba(0, 0, 0, 0.22) !important;
-  -moz-box-shadow: 7px 8px 17px 4px rgba(0, 0, 0, 0.22) !important;
-  box-shadow: 7px 8px 17px 4px rgba(0, 0, 0, 0.22) !important; }
+  -webkit-box-shadow: 0px 3px 12px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 3px 12px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 12px -1px rgba(0, 0, 0, 0.75);
+  border-bottom: 1px solid #E37222; }
   nav a {
-    color: #EEAA7B !important; }
+    color: #E37222 !important;
+    text-transform: capitalize;
+    padding: 0, 2rem !important;
+    padding-left: 0.2rem !important;
+    padding-right: 0.2rem !important; }
     nav a:hover {
-      background-color: #EEAA7B !important;
-      color: #E37222 !important; }
-  nav h2 {
-    text-shadow: 5px 4px 15px rgba(28, 110, 164, 0.66) !important; }
+      background-color: #E37222 !important;
+      border-radius: 3px;
+      color: #FFF !important; }
 
 footer {
-  position: absolute !important;
+  padding-top: 1rem !important;
+  position: static !important;
   width: 100% !important;
   bottom: 0px !important;
+  max-height: 100% !important;
+  background-color: #FFF !important;
+  font-family: Oxygen, sans-serif !important;
+  border-top: 1px solid #E37222;
+  z-index: 1 !important;
+  -webkit-box-shadow: 0px 3px 12px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 3px 12px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 3px 12px -1px rgba(0, 0, 0, 0.75); }
+  footer a {
+    color: #E37222 !important; }
+
+.restaurant-listing {
   background-color: #E37222 !important;
-  font-family: Oxygen, sans-serif !important; }
-
-  .restaurant-listing {
-    height: 100% !important; }
-    .restaurant-listing .card-columns {
-      padding: 2rem !important; }
-      .restaurant-listing .card-columns .card {
-        -webkit-box-shadow: 7px 8px 17px 4px rgba(0, 0, 0, 0.22) !important;
-        -moz-box-shadow: 7px 8px 17px 4px rgba(0, 0, 0, 0.22) !important;
-        box-shadow: 7px 8px 17px 4px rgba(0, 0, 0, 0.22) !important; }
-        .restaurant-listing .card-columns .card:hover {
-          transform: scale(1.1);
-          z-index: 99 !important; }
-    .restaurant-listing table thead tr th {
+  min-height: 100vh !important;
+  height: 100% !important; }
+  .restaurant-listing .card-columns {
+    padding: 2rem !important; }
+    .restaurant-listing .card-columns .card {
+      -webkit-box-shadow: 0px 3px 12px -1px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 3px 12px -1px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 3px 12px -1px rgba(0, 0, 0, 0.75); }
+      .restaurant-listing .card-columns .card:hover {
+        transform: scale(1.1);
+        z-index: 99 !important;
+        animation-name: pop;
+        animation-duration: 1s; }
+        .restaurant-listing .card-columns .card .card-body .btn {
+          background-color: #E37222 !important;
+          border-color: #E37222 !important; }
+  .restaurant-listing table thead tr th {
+    padding-top: 0.5rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    align-content: center !important; }
+  .restaurant-listing table tbody tr th {
+    padding-top: 0.5rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    padding-bottom: 0.5rem !important; }
+    .restaurant-listing table tbody tr td {
       padding-top: 0.5rem !important;
-      padding-left: 0.5rem !important;
-      padding-right: 0.5rem !important;
-      align-content: center !important; }
-    .restaurant-listing table tbody tr th {
-      padding-top: 0.5rem !important;
-      padding-left: 0.5rem !important;
-      padding-right: 0.5rem !important;
+      padding-left: 2rem !important;
+      padding-right: 2rem !important;
       padding-bottom: 0.5rem !important; }
-      .restaurant-listing table tbody tr td {
-        padding-top: 0.5rem !important;
-        padding-left: 2rem !important;
-        padding-right: 2rem !important;
-        padding-bottom: 0.5rem !important; }
 
-@media screen and (max-width: 992px) {
-  body footer {
-    position: relative !important;   }
-    body .restaurant-listing .card-columns {
-      align-content: center !important;   }
+.restaurant {
+  background-color: #E37222 !important;
+  min-width: 100% !important;
+  align-content: center !important;
+  align-content: center !important;
+  text-align: center !important; }
+  .restaurant a {
+    color: #FFF !important;
+    z-index: 1 !important;
+    min-height: 100% !important; }
+    .restaurant .btn {
+      background-color: #E37222 !important;
+      color: #FFF !important;
+      margin-bottom: 1rem !important;
+      border-color: #EEAA7B !important; }
+      .restaurant .btn:hover {
+        background-color: #EEAA7B !important;
+        color: #E37222 !important; }
+  .restaurant .row .food {
+    height: 100% !important;
+    width: 100% !important;
+    padding: 1rem;
+    align-content: center !important;
+    text-align: center !important; }
+    .restaurant .row .food h1 {
+      padding: 1rem; }
+      .restaurant .row .food ul {
+        max-width: 50vw !important;
+        margin: 0 auto; }
+        .restaurant .row .food ul .lunchmebish {
+          border: 1px solid #000; }
+          .restaurant .row .food ul .lunchmebish h3 {
+            padding-top: 1rem; }
+
+.info {
+  background-color: #E37222 !important;
+  min-height: 100vh !important;
+  height: 100% !important;
+  padding: 1rem;
+  justify-content: center !important;
+  text-align: center !important;
+  z-index: -3 !important;
+  color: #FFF; }
+
+  @media screen and (max-width: 992px) {
+    body footer {
+      position: relative !important;   }
+      body .restaurant-listing .card-columns {
+        align-content: center !important;   }
 }

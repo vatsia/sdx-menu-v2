@@ -15,13 +15,19 @@
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
    <script src="{{ url_for('static', filename='keb.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block head %}
         <title>{% block title %}{% endblock %} - Sdxmenu V2</title>
     {% endblock %}
 </head>
 <body>
-
+<div id="ex1" class="modal" style="margin:0 auto !important;">
+  <p>Piimällä täytetty nahkasäkki t.laktoosi-ville</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/6jJkdRaa04g?controls=0?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <a href="#" rel="modal:close">Close</a>
+</div>
 <nav class="navbar navbar-expand-lg navbar-light justify-content-end">
     <a class="navbar-brand " href="/"><h2>Sdx-menu v2</h2></a>
     <button class="navbar-toggler btn btn-primary" type="button" data-toggle="collapse"
@@ -58,6 +64,9 @@
 </nav>
 
 <div id="content container-fluid" style="height: 100% !important; min-height: 100% !important; justify-content: center !important;">
+
+
+
     {% block content %}{% endblock %}</div>
 
 <!-- Footer -->

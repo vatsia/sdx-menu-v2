@@ -1,14 +1,30 @@
 {% extends "base.html" %}
 {% block title %}{{ menu['meta']['ref_title'] }}{% endblock %}
 {% block content %}
+    <div class="container restaurant">
+    <div class="row">
+    <div class="col-sm food">
     <h1><a href="{{ menu['meta']['ref_url'] }}">{{ menu['meta']['ref_title'] }}</a></h1>
-    
-    {% for item in menu['courses'] %}
-        <h3>{{ item['category'] }}</h3>
+    <ul class="list-group center d-flex">
+      {% for item in menu['courses'] %}
+         <!-- <div class="lunchmebish"> -->
+         <li class="list-group-item">
+        <h3 class="mb-1"">{{ item['category'] }}</h3>
         <p>{{ item['title_fi'] }} Hinta: {{ item['price'] }} Erikoisruokavaliot: {{ item['properties'] }}</p>
+        </li>
+          <!--  </div> -->
     {% endfor %}
+    </ul>
+
+    </div>
+
+  </div>
+
+    
+
 
     {% if ck < 1 %}
-        <a href="{{ url_for('set_default_restaurant', restaurant_id=restid) }}">Make default restaurant</a>
+        <a href="{{ url_for('set_default_restaurant', restaurant_id=restid) }}" type="button" class="btn btn-primary">Make default restaurant</a>
     {% endif %}
+    </div>
 {% endblock %}
